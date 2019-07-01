@@ -1,1 +1,8 @@
-<p>m1-item1 works!</p>
+<ul>
+    <li *ngFor="let item of Items; let i = index">
+        <div>
+            <div [title]="item">{{ item }}</div>
+            <button (click)="onDelItem(i)">X</button>
+        </div>
+    </li>
+</ul>

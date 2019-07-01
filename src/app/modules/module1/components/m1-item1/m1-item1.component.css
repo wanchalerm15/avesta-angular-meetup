@@ -1,0 +1,11 @@
+li>div {
+    display: flex;
+}
+
+li>div>div {
+    padding-right: 15px;
+    flex: 0 0 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

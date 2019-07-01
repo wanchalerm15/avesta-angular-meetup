@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'version8';
+  Items: string[] = ["Mango", "Papaya", "Banana"];
+
+  onAddItem(item: string) {
+    this.Items.push(item);
+  }
+
+  onDelItem(index: number) {
+    this.Items.splice(index, 1);
+  }
 }
