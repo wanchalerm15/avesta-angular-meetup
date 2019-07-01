@@ -1,1 +1,14 @@
-<p>m2-item2 works!</p>
+<form (submit)="ngModelSubmit()">
+    <input type="text" [(ngModel)]="model" name="model" placeholder="Ng Model">
+    <input type="submit" value="Ng Model Submit">
+</form>
+
+<form (submit)="ngFormSubmit(form)" #form="ngForm">
+    <input type="text" ngModel name="model" placeholder="Ng Form">
+    <input type="submit" value="Ng Form Submit">
+</form>
+
+<form (submit)="formGroupSubmit()" [formGroup]="group">
+    <input type="text" formControlName="model" placeholder="Form builder">
+    <input type="submit" value="Form Group Submit">
+</form>
