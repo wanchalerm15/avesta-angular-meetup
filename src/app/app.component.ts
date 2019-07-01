@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'version8';
-  Items: string[] = ["Mango", "Papaya", "Banana"];
+  Items: string[] = ["Mango", "Papaya", "Banana", "Warter melon"];
 
   onAddItem(item: string) {
     this.Items.push(item);
