@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let item of Items; let i = index">
+    <li *ngFor="let item of _appService.Items; let i = index">
         <div>
             <div [title]="item">{{ item }}</div>
             <button (click)="onDelItem(i)">X</button>

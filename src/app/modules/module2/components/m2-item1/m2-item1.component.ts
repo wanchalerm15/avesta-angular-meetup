@@ -8,15 +8,11 @@ import { AppService } from '../../../../services/app.service';
 })
 export class M2Item1Component implements OnInit {
 
-  Items: string[] = [];
-
   constructor(public _appService: AppService) {
 
     this._appService
       .getItems()
-      .subscribe(result => {
-        this.Items = result;
-      });
+      .subscribe();
 
   }
 
