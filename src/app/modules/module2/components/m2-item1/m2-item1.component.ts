@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-m2-item1',
@@ -7,10 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class M2Item1Component implements OnInit {
 
-  @Input('Items')
-  public Items: string[] = [];
-
-  constructor() { }
+  constructor(public _appService: AppService) { }
 
   ngOnInit() {
   }

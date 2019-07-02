@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-m1-item2',
@@ -7,17 +8,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class M1Item2Component implements OnInit {
 
-  @Output('onItem')
-  public onItem = new EventEmitter<string>();
-
-  constructor() { }
+  constructor(public _appService: AppService) { }
 
   ngOnInit() {
   }
 
   onAddItem(input: HTMLInputElement) {
-    if (!input.value) return;
-    this.onItem.emit(input.value);
+    this._appService.addItem(input.value);
     input.value = null;
   }
 }

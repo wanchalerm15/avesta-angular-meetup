@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from './services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'version8';
-  Items: string[] = ["Mango", "Papaya", "Banana", "Warter melon"];
-
-  onAddItem(item: string) {
-    this.Items.push(item);
-  }
-
-  onDelItem(index: number) {
-    this.Items.splice(index, 1);
-  }
 }

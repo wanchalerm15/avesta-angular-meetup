@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-m1-item1',
@@ -7,18 +8,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class M1Item1Component implements OnInit {
 
-  @Input('Items')
   public Items: string[] = [];
 
-  @Output('onItem')
-  public onItem = new EventEmitter<number>();
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public _appService: AppService) {
+    this.Items = this._appService.Items;
   }
 
-  onDelItem(index: number) {
-    this.onItem.emit(index);
+  ngOnInit() {
   }
 }
