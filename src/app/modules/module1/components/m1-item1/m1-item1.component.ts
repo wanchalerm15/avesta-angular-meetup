@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AppService } from 'src/app/services/app.service';
+import { AppService } from '../../../../services/app.service';
 
 @Component({
   selector: 'app-m1-item1',
@@ -11,7 +11,13 @@ export class M1Item1Component implements OnInit {
   public Items: string[] = [];
 
   constructor(public _appService: AppService) {
-    this.Items = this._appService.Items;
+
+    this._appService
+      .getItems()
+      .subscribe(result => {
+        this.Items = result;
+      });
+
   }
 
   ngOnInit() {

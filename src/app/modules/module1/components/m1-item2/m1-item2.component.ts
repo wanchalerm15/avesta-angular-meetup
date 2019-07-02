@@ -14,7 +14,14 @@ export class M1Item2Component implements OnInit {
   }
 
   onAddItem(input: HTMLInputElement) {
-    this._appService.addItem(input.value);
-    input.value = null;
+
+    this._appService
+      .addItem(input.value)
+      .subscribe(result => {
+        input.value = null;
+        this._appService.appSubject.next("Add from element");
+        this._appService.appBehaviorSubject.next("Add from element");
+      }, error => alert(error.message));
+
   }
 }

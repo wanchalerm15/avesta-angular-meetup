@@ -22,20 +22,35 @@ export class M2Item2Component implements OnInit {
   }
 
   ngModelSubmit() {
-    this._appService.addItem(this.model);
-    this.model = null;
+    this._appService
+      .addItem(this.model)
+      .subscribe(result => {
+        this.model = null;
+        this._appService.appSubject.next('Add from NgModel');
+        this._appService.appBehaviorSubject.next('Add from NgModel');
+      }, (error: Error) => alert(error.message));
   }
 
   ngFormSubmit(form: NgForm) {
     if (form.invalid) return;
-    this._appService.addItem(form.value['model']);
-    form.reset();
+    this._appService
+      .addItem(form.value['model'])
+      .subscribe(result => {
+        form.reset();
+        this._appService.appSubject.next('Add from NgForm');
+        this._appService.appBehaviorSubject.next('Add from NgForm');
+      }, (error: Error) => alert(error.message));
   }
 
   formGroupSubmit() {
     if (this.group.invalid) return;
-    this._appService.addItem(this.group.value['model']);
-    this.group.reset();
+    this._appService
+      .addItem(this.group.value['model'])
+      .subscribe(result => {
+        this.group.reset();
+        this._appService.appSubject.next('Add from FormGroup');
+        this._appService.appBehaviorSubject.next('Add from FormGroup');
+      }, (error: Error) => alert(error.message));
   }
 
   isRequired(control: AbstractControl) {
