@@ -19,8 +19,8 @@ export class M1Item2Component implements OnInit {
       .addItem(input.value)
       .subscribe(result => {
         input.value = null;
-        this._appService.appSubject.next("Add from element");
-        this._appService.appBehaviorSubject.next("Add from element");
+        this._appService.appSubject.next(`Add by element (${result})`);
+        this._appService.appBehaviorSubject.next(`Add by element (${result})`);
       }, error => alert(error.message));
 
   }

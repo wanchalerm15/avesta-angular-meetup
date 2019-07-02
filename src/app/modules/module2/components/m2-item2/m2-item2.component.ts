@@ -26,8 +26,8 @@ export class M2Item2Component implements OnInit {
       .addItem(this.model)
       .subscribe(result => {
         this.model = null;
-        this._appService.appSubject.next('Add from NgModel');
-        this._appService.appBehaviorSubject.next('Add from NgModel');
+        this._appService.appSubject.next(`Add by NgModel (${result})`);
+        this._appService.appBehaviorSubject.next(`Add by NgModel (${result})`);
       }, (error: Error) => alert(error.message));
   }
 
@@ -37,8 +37,8 @@ export class M2Item2Component implements OnInit {
       .addItem(form.value['model'])
       .subscribe(result => {
         form.reset();
-        this._appService.appSubject.next('Add from NgForm');
-        this._appService.appBehaviorSubject.next('Add from NgForm');
+        this._appService.appSubject.next(`Add by NgForm (${result})`);
+        this._appService.appBehaviorSubject.next(`Add by NgForm (${result})`);
       }, (error: Error) => alert(error.message));
   }
 
@@ -48,8 +48,8 @@ export class M2Item2Component implements OnInit {
       .addItem(this.group.value['model'])
       .subscribe(result => {
         this.group.reset();
-        this._appService.appSubject.next('Add from FormGroup');
-        this._appService.appBehaviorSubject.next('Add from FormGroup');
+        this._appService.appSubject.next(`Add from FormGroup (${result})`);
+        this._appService.appBehaviorSubject.next(`Add from FormGroup (${result})`);
       }, (error: Error) => alert(error.message));
   }
 

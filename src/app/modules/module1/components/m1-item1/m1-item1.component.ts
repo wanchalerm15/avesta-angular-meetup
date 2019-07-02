@@ -22,4 +22,13 @@ export class M1Item1Component implements OnInit {
 
   ngOnInit() {
   }
+
+  onDelItem(index: number) {
+    this._appService
+      .delItem(index)
+      .subscribe(() => {
+        this._appService.appSubject.next(`Delete by button (${index})`);
+        this._appService.appBehaviorSubject.next(`Delete by button (${index})`);
+      }, (error: Error) => alert(error.message));
+  }
 }

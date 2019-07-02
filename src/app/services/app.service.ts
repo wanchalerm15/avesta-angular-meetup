@@ -28,7 +28,7 @@ export class AppService {
 
   delItem(index: number) {
     return new Observable(observ => {
-      if (!index) return observ.error(new Error("The request is invalid"));
+      if (isNaN(index)) return observ.error(new Error("The request is invalid"));
       this.Items.splice(index, 1);
       observ.next();
       observ.complete();

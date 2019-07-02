@@ -2,7 +2,7 @@
     <li *ngFor="let item of Items; let i = index">
         <div>
             <div [title]="item">{{ item }}</div>
-            <button (click)="_appService.delItem(i)">X</button>
+            <button (click)="onDelItem(i)">X</button>
         </div>
     </li>
 </ul>
