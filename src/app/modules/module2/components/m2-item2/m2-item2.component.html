@@ -4,11 +4,17 @@
 </form>
 
 <form (submit)="ngFormSubmit(form)" #form="ngForm">
-    <input type="text" ngModel name="model" placeholder="Ng Form">
+    <input type="text" ngModel name="model" placeholder="Ng Form" required>
     <input type="submit" value="Ng Form Submit">
+    <div class="error" *ngIf="isRequired(form.controls['model'])">
+        The field is required
+    </div>
 </form>
 
 <form (submit)="formGroupSubmit()" [formGroup]="group">
     <input type="text" formControlName="model" placeholder="Form builder">
     <input type="submit" value="Form Group Submit">
+    <div class="error" *ngIf="isRequired(group.get('model'))">
+        The field is required
+    </div>
 </form>

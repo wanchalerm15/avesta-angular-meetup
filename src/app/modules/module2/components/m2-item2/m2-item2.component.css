@@ -1,0 +1,9 @@
+input.ng-touched.ng-invalid {
+    outline: solid 1px red;
+}
+
+.error {
+    font-size: 12px;
+    margin: 4px 0;
+    color: red;
+}
